@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klencod - Code on the Go</title>
+    <meta name="description" content="Klencod IDE - A powerful mobile IDE to build Android apps (Flutter, Java, Kotlin, React Native) directly from your phone.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0D1117;
+            --surface-color: #161B22;
+            --surface-alt: #21262D;
+            --primary-color: #1F6FEB;
+            --primary-hover: #58A6FF;
+            --text-primary: #E6EDF3;
+            --text-secondary: #8B949E;
+            --border-color: #30363D;
+            --success-color: #2EA043;
+            --danger-color: #CF222E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(22, 27, 34, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--primary-hover);
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at top, #1F6FEB22 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-hover);
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-hover);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--surface-alt);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: var(--primary-hover);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 34px; }
+            .hero p { font-size: 16px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">Klencod <span>IDE</span></a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="https://github.com/Klencod" target="_blank">GitHub</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="hero">
+        <h1>Build Apps <span>From Your Phone</span></h1>
+        <p>A powerful mobile IDE that lets you write code and build Android apps in Flutter, Java, Kotlin, and React Native directly from your phone, with full GitHub Actions support.</p>
+        
+        <div class="cta-buttons">
+            <!-- Replace with your APKPure download link -->
+            <a href="#" class="btn btn-primary">Download App 📥</a>
+            <!-- Replace with your YouTube/Telegram channel link -->
+            <a href="#" class="btn btn-secondary">Watch Tutorials 🎥</a>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <h2 class="section-title">Why Klencod IDE?</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">💻</div>
+                <h3>Advanced Code Editor</h3>
+                <p>Multi-language editor with syntax highlighting, smart auto-completion, and a seamless typing experience.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Multi-Language Support</h3>
+                <p>Write and build your apps using Flutter, Java, Kotlin, or React Native. All from one environment.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Cloud Builds</h3>
+                <p>Push your project and build APKs automatically via GitHub Actions without draining your phone's battery.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>AI Assistant</h3>
+                <p>An Agentic AI assistant that helps you write code, find bugs, and edit files within your project.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📂</div>
+                <h3>Multi-Account Support</h3>
+                <p>Connect multiple GitHub accounts and switch between them effortlessly inside the app.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Ready-Made Templates</h3>
+                <p>Kickstart your projects with professional templates like To-Do lists, e-commerce stores, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Crafted with passion by <a href="https://github.com/Klencod">Klencod</a> &copy; 2026</p>
+        <p style="margin-top: 10px; font-size: 12px;">All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
